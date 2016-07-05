@@ -112,7 +112,7 @@ void SetOrigin(SongTagInfo& info)
 }
 void SetCredit(SongTagInfo& info)
 {
-	info.song->m_sCredit = (*info.params)[1];
+	info.song->m_sCredit = Rage::trim((*info.params)[1]);
 }
 void SetBanner(SongTagInfo& info)
 {
@@ -334,7 +334,7 @@ void SetStepsVersion(StepsTagInfo& info)
 }
 void SetChartName(StepsTagInfo& info)
 {
-	info.steps->SetChartName((*info.params)[1]);
+	info.steps->SetChartName(Rage::trim((*info.params)[1]));
 }
 void SetStepsType(StepsTagInfo& info)
 {
@@ -351,11 +351,11 @@ void SetDescription(StepsTagInfo& info)
 {
 	if(info.song->m_fVersion < VERSION_CHART_NAME_TAG && !info.for_load_edit)
 	{
-		info.steps->SetChartName((*info.params)[1]);
+		info.steps->SetChartName(Rage::trim((*info.params)[1]));
 	}
 	else
 	{
-		info.steps->SetDescription((*info.params)[1]);
+		info.steps->SetDescription(Rage::trim((*info.params)[1]));
 	}
 	info.ssc_format= true;
 }
